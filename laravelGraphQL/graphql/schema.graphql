@@ -36,8 +36,20 @@ type Query {
     # }
 }
 
+type Mutation {
+    createUser(name: String!, email: String, password: String!): User! @create
+
+    # mutation {
+    #   createUser(name: "Donald") {
+    #       id
+    #       name
+    #    }
+    # }
+}
+
 type User {
     id: ID
     name: String
     email_verified_at: String
+    email: String
 }
