@@ -1,6 +1,6 @@
 type Query {
     # Get all users
-    users: [User!]! @all
+    # users: [User!]! @all
     # {
     #   users {
     #     id,
@@ -11,10 +11,27 @@ type Query {
     # Fetch single user
     user(id: ID @eq): User @find
 
-    #     {
+    # {
     #   user(id:3){
     #     id,
     #     name
+    #   }
+    # }
+
+    # Fetch paginate users
+    users: [User!]! @paginate
+
+    # {
+    #   users(first:3, page:2){
+    #       data{
+    #           name,
+    #           id
+    #       },
+    #        paginatorInfo {
+    #           currentPage,
+    #           hasMorePages,
+    #           lastPage
+    #       }
     #   }
     # }
 }
